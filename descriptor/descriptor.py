@@ -19,7 +19,7 @@ class Descriptor:
     cv2.ellipse(elli, (cX, cY), (xL, yL), 0, 0, 360, 255, -1)
 
     for (x0, x1, y0, y1) in segments:
-      rect = np.zeros(image.shape[:2])
+      rect = np.zeros(image.shape[:2], dtype = 'uint8')
       cv2.rectangle(rect, (x0, y0), (x1, y1), 255, -1)
       rect = cv2.subtract(rect, elli)
 
@@ -33,6 +33,6 @@ class Descriptor:
 
   def histogram(self, image, mask):
     hist = cv2.calcHist([image], [0, 1, 2], mask, self.bins, [0, 180, 0, 256, 0, 256])
-    hist = cv2.normalize(hist).flatten()
+    hist = cv2.normalize(hist, hist).flatten()
 
     return hist
