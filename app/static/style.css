@@ -1,0 +1,18 @@
+.center-container {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.img {
+  cursor: pointer;
+}
+
+.active {
+  border: 5px solid black;
+}
+
+.img-results {
+  max-width: 100px;
+  max-height: 100px;
+}
